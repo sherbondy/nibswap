@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 MIT. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import <SSZipArchive.h>
+
+#import "AppDelegate.h"
+#import "ExampleViewController.h"
 
 // replace this with the base url where you stored example.nib.zip
 static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
@@ -20,7 +22,7 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];    
     return [self downloadBundle];
 }
 
@@ -46,7 +48,7 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
         return NO;
     }
     else if (error) {
-        NSLog(@"%@", error);
+        NSLog(@"Error: %@", error);
     }
     
     NSString *zipFile = [documentsDirectory stringByAppendingString:zipFilename];
@@ -65,14 +67,19 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
     if (!bundle) {
         NSLog(@"no bundle found.");
     }
+        
+    ExampleViewController *viewController = [[ExampleViewController alloc] init];
     
-    UIViewController *viewController = [[UIViewController alloc] init];
-    NSArray *nibs = [bundle loadNibNamed:@"ExampleView" owner:viewController options:nil];
+    NSDictionary *nibObjects = @{ @"nameLabel": viewController.nameLabel};
+    NSDictionary *proxies    = @{ UINibExternalObjects : nibObjects};
+    
+    NSArray *nibs = [bundle loadNibNamed:@"ExampleView" owner:viewController options:proxies];
     // use options to hook up iboutlets
     UIView *nibView = [nibs objectAtIndex:0];
 
     self.window.rootViewController = viewController;
     viewController.view = nibView;
+    viewController.nameLabel.text = @"Bob";
     
     return YES;
 }
