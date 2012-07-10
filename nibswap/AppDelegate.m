@@ -21,67 +21,71 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];    
-    return [self downloadBundle];
+    self.window.backgroundColor    = [UIColor whiteColor];
+    _viewController                = [[ExampleViewController alloc] init];
+    self.window.rootViewController = _viewController;
+    [self.window makeKeyAndVisible];
+    [self downloadBundle];
+    return YES;
 }
 
-- (BOOL)downloadBundle
+- (void)downloadBundle
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     
     NSString *bundleFilename = @"example.bundle";
-    NSString *zipFilename = [bundleFilename stringByAppendingString:@".zip"];
-    NSURL *url = [NSURL URLWithString:[kRemoteNibBaseURL stringByAppendingString:zipFilename]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response;
+    NSString *bundlePath     = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
+    NSString *zipFilename    = [bundleFilename stringByAppendingString:@".zip"];
+    NSURL *url               = [NSURL URLWithString:[kRemoteNibBaseURL stringByAppendingString:zipFilename]];
+    NSURLRequest *request    = [NSURLRequest requestWithURL:url];
+    
+    NSHTTPURLResponse *response;
     NSError *error;
+    
+    // request the zipped bundle from the server
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    NSLog(@"%d", [httpResponse statusCode]);
-        
-    if ([httpResponse statusCode] == 404){
-        NSString *path = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    NSLog(@"Status Code: %d", [response statusCode]);
+    
+    // check if the download went awry
+    if ([response statusCode] == 404){
+        [[NSFileManager defaultManager] removeItemAtPath:bundlePath error:nil];
         NSLog(@"Unable to grab the remote file.");
-        return NO;
-    }
-    else if (error) {
+        return;
+    } else if (error) {
         NSLog(@"Error: %@", error);
     }
     
-    NSString *zipFile = [documentsDirectory stringByAppendingString:zipFilename];
-    BOOL didWriteData = [data writeToFile:zipFile atomically:YES];
+    // save the downloaded file
+    NSString *zipPath = [documentsDirectory stringByAppendingString:zipFilename];
+    BOOL didWriteData = [data writeToFile:zipPath atomically:YES];
     if (didWriteData) {
-        BOOL success = [SSZipArchive unzipFileAtPath:zipFile toDestination:documentsDirectory];
-        if (!success) {
-            NSLog(@"failed to unzip file.");
+        // unzip the bundle
+        BOOL didUnzipBundle = [SSZipArchive unzipFileAtPath:zipPath toDestination:documentsDirectory];
+        if (!didUnzipBundle) {
+            NSLog(@"Failed to unzip file.");
         } else {
             NSLog(@"Success!");
         }
     }
     
-    NSString *file = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
-    NSBundle *bundle = [NSBundle bundleWithPath:file];
+    // initialize the bundle
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     if (!bundle) {
-        NSLog(@"no bundle found.");
+        NSLog(@"No bundle found.");
     }
-        
-    ExampleViewController *viewController = [[ExampleViewController alloc] init];
     
-    NSDictionary *nibObjects = @{ @"nameLabel": viewController.nameLabel};
+    // hookup the IBOutlets
+    NSDictionary *nibObjects = @{ @"nameLabel": _viewController.nameLabel};
     NSDictionary *proxies    = @{ UINibExternalObjects : nibObjects};
     
-    NSArray *nibs = [bundle loadNibNamed:@"ExampleView" owner:viewController options:proxies];
-    // use options to hook up iboutlets
-    UIView *nibView = [nibs objectAtIndex:0];
+    // extract the nibs, in this case, a single UIView
+    NSArray *nibs   = [bundle loadNibNamed:@"ExampleView" owner:_viewController options:proxies];
+    UIView *nibView = nibs[0];
 
-    self.window.rootViewController = viewController;
-    viewController.view = nibView;
-    viewController.nameLabel.text = @"Bob";
-    
-    return YES;
+    // and now the big payoff
+    _viewController.view = nibView;
+    _viewController.nameLabel.text = @"Bob";    
 }
 
 @end
