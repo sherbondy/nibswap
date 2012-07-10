@@ -33,30 +33,27 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
     NSString *zipFilename = [bundleFilename stringByAppendingString:@".zip"];
     NSURL *url = [NSURL URLWithString:[kRemoteNibBaseURL stringByAppendingString:zipFilename]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = nil;
-    NSError *error = nil;
+    NSURLResponse *response;
+    NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     NSLog(@"%d", [httpResponse statusCode]);
         
-    if ([httpResponse statusCode] == 404) // bundle will be deleted and the default interface will be used ...
-    {
+    if ([httpResponse statusCode] == 404){
         NSString *path = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
         [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        NSLog(@"Unable to grab the remote file.");
         return NO;
     }
-    else if (error)
-    {
+    else if (error) {
         NSLog(@"%@", error);
     }
     
     NSString *zipFile = [documentsDirectory stringByAppendingString:zipFilename];
     BOOL didWriteData = [data writeToFile:zipFile atomically:YES];
-    if (didWriteData)
-    {
+    if (didWriteData) {
         BOOL success = [SSZipArchive unzipFileAtPath:zipFile toDestination:documentsDirectory];
-        if (!success)
-        {
+        if (!success) {
             NSLog(@"failed to unzip file.");
         } else {
             NSLog(@"Success!");
@@ -65,8 +62,7 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
     
     NSString *file = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
     NSBundle *bundle = [NSBundle bundleWithPath:file];
-    if (!bundle)
-    {
+    if (!bundle) {
         NSLog(@"no bundle found.");
     }
     
