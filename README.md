@@ -14,7 +14,7 @@ capable of interacting with the Objective-C runtime... I'm looking at [Nu](http:
 Instructions
 ===========
 
-From the command line install SSZipArchive from [Cocoapods](http://cocoapods.org/)):
+From the command line, install SSZipArchive via [Cocoapods](http://cocoapods.org/):
   
     pod install
 
