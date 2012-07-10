@@ -1,0 +1,7 @@
+# Xcode
+*.pbxuser
+*.xcuserstate
+*.xcworkspace/
+xcuserdata/
+Pods/
+Podfile.lock
