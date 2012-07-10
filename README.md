@@ -14,7 +14,12 @@ capable of interacting with the Objective-C runtime... I'm looking at [Nu](http:
 Instructions
 ===========
 
-Move `example.bundle.zip` to an HTTP server (remote or local). 
-Make sure to update the value of `kRemoteNibBaseURL` in `AppDelegate.m` to reflect the server's base URL.
+From the command line install SSZipArchive from [Cocoapods](http://cocoapods.org/)):
+  
+    pod install
+
+Next, move `example.bundle.zip` to an HTTP server (remote or local). 
+
+Update the value of `kRemoteNibBaseURL` in `AppDelegate.m` to reflect the server's base URL.
 
 Tell me if you come up with any crazy ideas.
