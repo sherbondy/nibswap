@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E412F1615ABEDE2007E1465 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E412F1515ABEDE2007E1465 /* UIKit.framework */; };
+		3E412F1815ABEDE2007E1465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E412F1715ABEDE2007E1465 /* Foundation.framework */; };
+		3E412F1A15ABEDE2007E1465 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E412F1915ABEDE2007E1465 /* CoreGraphics.framework */; };
+		3E412F2015ABEDE2007E1465 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E412F1E15ABEDE2007E1465 /* InfoPlist.strings */; };
+		3E412F2215ABEDE2007E1465 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E412F2115ABEDE2007E1465 /* main.m */; };
+		3E412F2615ABEDE2007E1465 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E412F2515ABEDE2007E1465 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E412F1115ABEDE2007E1465 /* nibswap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nibswap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E412F1515ABEDE2007E1465 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3E412F1715ABEDE2007E1465 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3E412F1915ABEDE2007E1465 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3E412F1D15ABEDE2007E1465 /* nibswap-Info.plist */ = {isa = PBXFileReference; path = "nibswap-Info.plist"; sourceTree = "<group>"; };
+		3E412F1F15ABEDE2007E1465 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3E412F2115ABEDE2007E1465 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3E412F2315ABEDE2007E1465 /* nibswap-Prefix.pch */ = {isa = PBXFileReference; path = "nibswap-Prefix.pch"; sourceTree = "<group>"; };
+		3E412F2415ABEDE2007E1465 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3E412F2515ABEDE2007E1465 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E412F0E15ABEDE2007E1465 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E412F1615ABEDE2007E1465 /* UIKit.framework in Frameworks */,
+				3E412F1815ABEDE2007E1465 /* Foundation.framework in Frameworks */,
+				3E412F1A15ABEDE2007E1465 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E412F0615ABEDE2007E1465 = {
+			isa = PBXGroup;
+			children = (
+				3E412F1B15ABEDE2007E1465 /* nibswap */,
+				3E412F1415ABEDE2007E1465 /* Frameworks */,
+				3E412F1215ABEDE2007E1465 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3E412F1215ABEDE2007E1465 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E412F1115ABEDE2007E1465 /* nibswap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E412F1415ABEDE2007E1465 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E412F1515ABEDE2007E1465 /* UIKit.framework */,
+				3E412F1715ABEDE2007E1465 /* Foundation.framework */,
+				3E412F1915ABEDE2007E1465 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E412F1B15ABEDE2007E1465 /* nibswap */ = {
+			isa = PBXGroup;
+			children = (
+				3E412F2415ABEDE2007E1465 /* AppDelegate.h */,
+				3E412F2515ABEDE2007E1465 /* AppDelegate.m */,
+				3E412F1C15ABEDE2007E1465 /* Supporting Files */,
+			);
+			path = nibswap;
+			sourceTree = "<group>";
+		};
+		3E412F1C15ABEDE2007E1465 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E412F1D15ABEDE2007E1465 /* nibswap-Info.plist */,
+				3E412F1E15ABEDE2007E1465 /* InfoPlist.strings */,
+				3E412F2115ABEDE2007E1465 /* main.m */,
+				3E412F2315ABEDE2007E1465 /* nibswap-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E412F1015ABEDE2007E1465 /* nibswap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E412F2915ABEDE2007E1465 /* Build configuration list for PBXNativeTarget "nibswap" */;
+			buildPhases = (
+				3E412F0D15ABEDE2007E1465 /* Sources */,
+				3E412F0E15ABEDE2007E1465 /* Frameworks */,
+				3E412F0F15ABEDE2007E1465 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nibswap;
+			productName = nibswap;
+			productReference = 3E412F1115ABEDE2007E1465 /* nibswap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E412F0815ABEDE2007E1465 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = MIT;
+			};
+			buildConfigurationList = 3E412F0B15ABEDE2007E1465 /* Build configuration list for PBXProject "nibswap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3E412F0615ABEDE2007E1465;
+			productRefGroup = 3E412F1215ABEDE2007E1465 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E412F1015ABEDE2007E1465 /* nibswap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E412F0F15ABEDE2007E1465 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E412F2015ABEDE2007E1465 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E412F0D15ABEDE2007E1465 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E412F2215ABEDE2007E1465 /* main.m in Sources */,
+				3E412F2615ABEDE2007E1465 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3E412F1E15ABEDE2007E1465 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E412F1F15ABEDE2007E1465 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3E412F2715ABEDE2007E1465 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3E412F2815ABEDE2007E1465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E412F2A15ABEDE2007E1465 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nibswap/nibswap-Prefix.pch";
+				INFOPLIST_FILE = "nibswap/nibswap-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3E412F2B15ABEDE2007E1465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nibswap/nibswap-Prefix.pch";
+				INFOPLIST_FILE = "nibswap/nibswap-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E412F0B15ABEDE2007E1465 /* Build configuration list for PBXProject "nibswap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E412F2715ABEDE2007E1465 /* Debug */,
+				3E412F2815ABEDE2007E1465 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E412F2915ABEDE2007E1465 /* Build configuration list for PBXNativeTarget "nibswap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E412F2A15ABEDE2007E1465 /* Debug */,
+				3E412F2B15ABEDE2007E1465 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E412F0815ABEDE2007E1465 /* Project object */;
+}
