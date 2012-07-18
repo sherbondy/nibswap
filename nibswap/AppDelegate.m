@@ -12,7 +12,7 @@
 #import "ExampleViewController.h"
 
 // replace this with the base url where you stored example.nib.zip
-static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
+static NSString *kRemoteNibBaseURL = @"http://localhost/";
 
 @implementation AppDelegate
 
@@ -32,9 +32,9 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
 - (void)downloadBundle
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    NSString *bundleFilename = @"example.bundle";
+    NSString *bundleFilename = @"nibsample.bundle";
     NSString *bundlePath     = [documentsDirectory stringByAppendingPathComponent:bundleFilename];
     NSString *zipFilename    = [bundleFilename stringByAppendingString:@".zip"];
     NSURL *url               = [NSURL URLWithString:[kRemoteNibBaseURL stringByAppendingString:zipFilename]];
@@ -81,7 +81,7 @@ static NSString *kRemoteNibBaseURL = @"http://localhost/~ethanis/";
     
     // extract the nibs, in this case, a single UIView
     NSArray *nibs   = [bundle loadNibNamed:@"ExampleView" owner:_viewController options:proxies];
-    UIView *nibView = nibs[0];
+    UIView *nibView = [nibs objectAtIndex:0];
 
     // and now the big payoff
     _viewController.view = nibView;

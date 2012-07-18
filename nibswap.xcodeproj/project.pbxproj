@@ -32,6 +32,8 @@
 		3E412F2515ABEDE2007E1465 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3EE770EF15AC0449007730E8 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		3EE770F015AC0449007730E8 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		3EFCEE3515B65DD00056B60D /* nibswap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = nibswap.entitlements; sourceTree = "<group>"; };
+		3EFCEE6115B65F170056B60D /* nibsample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nibsample.xcodeproj; path = nibswap/nibsample/nibsample.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		3E412F0615ABEDE2007E1465 = {
 			isa = PBXGroup;
 			children = (
+				3EFCEE6115B65F170056B60D /* nibsample.xcodeproj */,
 				3E412F1B15ABEDE2007E1465 /* nibswap */,
 				3E412F1415ABEDE2007E1465 /* Frameworks */,
 				3E412F1215ABEDE2007E1465 /* Products */,
@@ -81,6 +84,7 @@
 		3E412F1B15ABEDE2007E1465 /* nibswap */ = {
 			isa = PBXGroup;
 			children = (
+				3EFCEE3515B65DD00056B60D /* nibswap.entitlements */,
 				3EE770EF15AC0449007730E8 /* ExampleViewController.h */,
 				3EE770F015AC0449007730E8 /* ExampleViewController.m */,
 				3E412F2415ABEDE2007E1465 /* AppDelegate.h */,
@@ -128,7 +132,7 @@
 		3E412F0815ABEDE2007E1465 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = MIT;
 			};
 			buildConfigurationList = 3E412F0B15ABEDE2007E1465 /* Build configuration list for PBXProject "nibswap" */;
@@ -250,6 +254,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 206D157F8D00410C9D7BBAC9 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = nibswap/nibswap.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nibswap/nibswap-Prefix.pch";
 				INFOPLIST_FILE = "nibswap/nibswap-Info.plist";
@@ -262,6 +267,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 206D157F8D00410C9D7BBAC9 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = nibswap/nibswap.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nibswap/nibswap-Prefix.pch";
 				INFOPLIST_FILE = "nibswap/nibswap-Info.plist";
